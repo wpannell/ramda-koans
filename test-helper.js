@@ -5,8 +5,6 @@ import should from 'should';
 
 import R from 'ramda';
 
-let expect = chai.expect;
-
 chai.use(chaiImmutable);
 
-export {R, mocha, chai, should};
+export {R};
