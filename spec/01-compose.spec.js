@@ -2,8 +2,8 @@ import {R} from '../test-helper';
 let {compose, pipe, reduce, filter, multiply, range, identity} = R;
 
 describe('composition', () => {
-  let f = x => identity;
-  let g = x => identity;
+  let f = x => x + 1;
+  let g = x => x * 5;
 
   it('mathematical', () => {
     (f(g(1))).should.equal(6);
@@ -15,7 +15,7 @@ describe('composition', () => {
     (compose(g, f)(1)).should.equal(10);
   });
 
-  it('R.pipe like unix pipe', () => {
+  it('R.pipe evaluates in the opposite order of compose', () => {
     (pipe(g, f)(1)).should.equal(6);
     (pipe(f, g)(1)).should.equal(10);
   });
