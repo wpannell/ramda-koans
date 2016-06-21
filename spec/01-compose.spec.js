@@ -1,5 +1,5 @@
 import {R} from '../test-helper';
-let {compose, pipe, reduce, filter, multiply, range, tap} = R;
+let {compose, pipe, reduce, filter, multiply, range} = R;
 
 describe('composition', () => {
   let f = x => x + 1;
@@ -22,11 +22,9 @@ describe('composition', () => {
 
   it('multiply even positive integers in range: 1 - 5', () => {
     const isEven = x => x % 2 === 0;
-    const multiplicativeIdentity = 1;
 
     const multiplyEvens = compose(
-        tap(console.log),
-        reduce(multiply, multiplicativeIdentity), //monoid ...
+        reduce(multiply, 1), //monoid ...
         filter(isEven)
     );
 
