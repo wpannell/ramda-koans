@@ -15,14 +15,8 @@ describe('composition', () => {
     (compose(g, f)(1)).should.equal(10);
   });
 
-  it('R.pipe like unix pipe', () => {
+  it('R.pipe evaluates in the opposite order of compose', () => {
     (pipe(g, f)(1)).should.equal(6);
     (pipe(f, g)(1)).should.equal(10);
-  });
-
-  it('multiply even positive integers in range: 1 - 5', () => {
-    let multiplyEvens = identity;
-
-    (multiplyEvens(range(1, 5))).should.equal(8);
   });
 });
