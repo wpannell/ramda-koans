@@ -19,15 +19,4 @@ describe('composition', () => {
     (pipe(g, f)(1)).should.equal(6);
     (pipe(f, g)(1)).should.equal(10);
   });
-
-  it('multiply even positive integers in range: 1 - 5', () => {
-    const isEven = x => x % 2 === 0;
-
-    const multiplyEvens = compose(
-        reduce(multiply, 1), //monoid ...
-        filter(isEven)
-    );
-
-    (multiplyEvens(range(1, 5))).should.equal(8);
-  });
 });
